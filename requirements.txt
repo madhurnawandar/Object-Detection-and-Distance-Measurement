@@ -1,7 +1,11 @@
-opencv_python==4.1.0.25
+#opencv_python==4.1.0.25
+opencv-python-headless
 numpy==1.17.0
 pandas==0.25.1
-torch_nightly==1.2.0.dev20190807+cpu
+#torch_nightly==1.2.0.dev20190807+cpu
+torch===1.2.0
+torchvision===0.4.0 -f https://download.pytorch.org/whl/torch_stable.html
 matplotlib==3.1.1
 Pillow==6.2.0
-torch==1.2.0
+#torch==1.2.0
+pyttsx3

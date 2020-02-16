@@ -15,8 +15,10 @@ import argparse
 # import ConnectionServer ## Import it if you are using raspberrypi or any thrid party camera to detect object
 import os,sys,time,json
 import math
-import win32com.client as wincl       #### Python's Text-to-speech (tts) engine for windows
-speak = wincl.Dispatch("SAPI.SpVoice")    #### This initiates the tts engine
+#import win32com.client as wincl       #### Python's Text-to-speech (tts) engine for windows
+#speak = wincl.Dispatch("SAPI.SpVoice")    #### This initiates the tts engine
+import pyttsx3
+engine = pyttsx3.init()
 
 
 def get_test_input(input_dim, CUDA):
@@ -237,11 +239,16 @@ def object_detection():
             get_number_of_object, get_distance= draw_detections(frame,found)
             if get_number_of_object >=1 and get_distance!=0:
                 feedback = ("{}".format(get_number_of_object)+ " " +l+" at {}".format(round(get_distance))+"Inches")
-                speak.Speak(feedback)
+                #speak.Speak(feedback)
+                #engine.say(feedback)
+                engine.say("Found %d %s at a distance of %d inches"%(1,l,round(get_distance)))
+                engine.runAndWait()
                 print(feedback)
             else:
                 feedback = ("{}".format("1")+ " " +l)
-                speak.Speak(feedback)
+                #speak.Speak(feedback)
+                #engine.say(feedback)
+                engine.say("Found %d %s"%(1,l))
                 print(feedback)
     # Stop the capture
     cap.release()

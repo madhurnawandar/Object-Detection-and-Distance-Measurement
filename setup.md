@@ -1,9 +1,11 @@
 # Create a python 3 bases virtual env
 python3 -m venv tensor-env
+
 source tensor-env/bin/activate
 
 # Download the source repo
 git clone git@github.com:madhurnawandar/Object-Detection-and-Distance-Measurement.git
+
 cd Object-Detection-and-Distance-Measurement/
 
 # Download the model
